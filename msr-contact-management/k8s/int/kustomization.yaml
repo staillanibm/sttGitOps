@@ -1,0 +1,6 @@
+resources:
+  - deploy.yaml
+
+images:
+  - name: ghcr.io/staillanibm/msr-contact-management
+    newTag: 0.0.0
