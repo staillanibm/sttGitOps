@@ -42,7 +42,7 @@ metadata:
     app: stt-contact-management
   name: stt-contact-management
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: stt-contact-management
