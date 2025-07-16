@@ -20,7 +20,7 @@ spec:
               --env-var "password=$password"
         env:
           - name: url
-            value: https://contact-management-int.sttlab.local/rad/sttContactManagement.api:ContactManagementAPI
+            value: http://stt-contact-management.integration.svc.cluster.local:5555/rad/sttContactManagement.api:ContactManagementAPI
           - name: password
             valueFrom:
               secretKeyRef:
@@ -29,10 +29,6 @@ spec:
         volumeMounts:
           - name: tests-volume
             mountPath: /tests
-        hostAliases:
-          - ip: "198.19.249.2"
-            hostnames:
-              - "contact-management-int.sttlab.local"
   volumes:
     - name: tests-volume
       configMap:
