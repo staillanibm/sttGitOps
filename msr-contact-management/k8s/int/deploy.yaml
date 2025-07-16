@@ -115,6 +115,7 @@ metadata:
   labels:
     name: stt-contact-management
     app: stt-contact-management
+    monitoring: enabled
 spec:
   selector:
     app: stt-contact-management
