@@ -33,3 +33,37 @@ spec:
 EOF
 
 kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+
+kubectl create namespace argo
+kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-workflows/stable/manifests/install.yaml
+
+kubectl create secret tls tls-cert \
+  --cert=$HOME/tls/sttlab.local.crt --key=$HOME/tls/sttlab.local.key \
+  -n argo
+
+kubectl apply -f - <<EOF
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argowf
+  namespace: argo
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - argowf.sttlab.local
+      secretName: tls-cert
+  rules:
+    - host: argowf.sttlab.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argo-server
+                port:
+                  number: 2746
+EOF
