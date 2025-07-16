@@ -1,5 +1,6 @@
 resources:
   - deploy.yaml
+  - workflow.yaml
 images:
   - name: ghcr.io/staillanibm/msr-contact-management
     newTag: 1.0.4
