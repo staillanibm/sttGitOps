@@ -3,3 +3,7 @@ resources:
 images:
   - name: ghcr.io/staillanibm/msr-contact-management
     newTag: 1.0.4
+configMapGenerator:
+  - name: contact-management-postman-collection
+    files:
+      - postmanCollection.json

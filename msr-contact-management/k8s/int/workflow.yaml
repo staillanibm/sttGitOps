@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: contact-management-tests
+  namespace: integration
+  annotations:
+    "argocd.argoproj.io/hook": PostSync
+spec:
+  entrypoint: run-tests
+  templates:
+    - name: run-tests
+      container:
+        image: postman/newman:alpine
+        command: ["newman", "run", "/tests/collection.postman.json"]
+        env:
+          - name: ROOT_URL
+            value: https://contact-management-int.sttlab.local
+          - name: ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: stt-contact-management
+                key: ADMIN_PASSWORD
+        volumeMounts:
+          - name: tests-volume
+            mountPath: /tests
+  volumes:
+    - name: tests-volume
+      configMap:
+        name: contact-management-postman-collection
