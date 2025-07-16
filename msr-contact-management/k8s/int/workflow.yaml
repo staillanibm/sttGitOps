@@ -10,8 +10,13 @@ spec:
   templates:
     - name: run-tests
       container:
-        image: postman/newman:alpine
-        command: ["newman", "run", "/tests/postmanCollection.json"]
+        command: ["sh", "-c"]
+        args:
+          - |
+            newman run /tests/postmanCollection.json \
+              --env-var "url=$url" \
+              --env-var "userName=Administrator"
+              --env-var "password=$password"
         env:
           - name: url
             value: https://contact-management-int.sttlab.local/rad/sttContactManagement.api:ContactManagementAPI
