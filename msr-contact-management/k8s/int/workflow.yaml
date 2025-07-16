@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
   name: contact-management-tests
-  namespace: argo
+  namespace: integration
   annotations:
     "argocd.argoproj.io/hook": PostSync
 spec:
