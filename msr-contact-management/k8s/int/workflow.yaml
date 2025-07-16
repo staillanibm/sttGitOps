@@ -13,9 +13,9 @@ spec:
         image: postman/newman:alpine
         command: ["newman", "run", "/tests/postmanCollection.json"]
         env:
-          - name: ROOT_URL
-            value: https://contact-management-int.sttlab.local
-          - name: ADMIN_PASSWORD
+          - name: url
+            value: https://contact-management-int.sttlab.local/rad/sttContactManagement.api:ContactManagementAPI
+          - name: password
             valueFrom:
               secretKeyRef:
                 name: stt-contact-management
