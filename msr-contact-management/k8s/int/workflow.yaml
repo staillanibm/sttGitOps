@@ -10,12 +10,13 @@ spec:
   templates:
     - name: run-tests
       container:
+        image: postman/newman:alpine
         command: ["sh", "-c"]
         args:
           - |
             newman run /tests/postmanCollection.json \
               --env-var "url=$url" \
-              --env-var "userName=Administrator"
+              --env-var "userName=Administrator" \
               --env-var "password=$password"
         env:
           - name: url
