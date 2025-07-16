@@ -7,3 +7,5 @@ configMapGenerator:
   - name: contact-management-postman-collection
     files:
       - postmanCollection.json
+    options:
+      disableNameSuffixHash: true
