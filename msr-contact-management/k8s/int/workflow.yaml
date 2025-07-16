@@ -29,6 +29,10 @@ spec:
         volumeMounts:
           - name: tests-volume
             mountPath: /tests
+        hostAliases:
+          - ip: "198.19.249.2"
+            hostnames:
+              - "contact-management-int.sttlab.local"
   volumes:
     - name: tests-volume
       configMap:
