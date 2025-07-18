@@ -36,7 +36,7 @@ data:
     globalvariable.EVENT_SYSTEM.value=KAFKA
     globalvariable.sttContactManagement.EVENT_CONNECTION_ALIAS.value=sttContactManagement_es
 
-    truststore.ES_TRUSTSTORE.ksLocation=./conf/es-cert.p12
+    truststore.ES_TRUSTSTORE.ksLocation=./conf/es/es-cert.p12
     truststore.ES_TRUSTSTORE.ksPassword=$secret{ES_TRUSTSTORE_PASSWORD}
 
     user.Administrator.password=$secret{ADMIN_PASSWORD}
@@ -78,7 +78,7 @@ spec:
             - name: secrets
               mountPath: /etc/secrets
             - name: es-truststore
-              mountPath: /opt/softwareag/IntegrationServer/conf/es-cert.p12
+              mountPath: /opt/softwareag/IntegrationServer/conf/es/es-cert.p12
               subPath: es-cert.p12
               readOnly: true
 
