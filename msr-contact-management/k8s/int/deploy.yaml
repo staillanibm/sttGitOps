@@ -121,6 +121,9 @@ spec:
         - name: es-truststore
           secret:
             secretName: es-truststore
+            items:
+            - key:  es-cert.p12
+              path: es-cert.p12
 
 
 ---
