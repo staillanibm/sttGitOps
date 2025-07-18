@@ -3,7 +3,7 @@ resources:
   - workflow.yaml
 images:
   - name: ghcr.io/staillanibm/msr-contact-management
-    newTag: 1.0.7
+    newTag: 1.0.8
 configMapGenerator:
   - name: contact-management-postman-collection
     files:
