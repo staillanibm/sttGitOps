@@ -70,3 +70,5 @@ EOF
 
 ---
 
+# If argocd sync is blocked
+argocd app terminate-op msr-contact-management
