@@ -64,6 +64,7 @@ spec:
     metadata:
       labels:
         app: stt-contact-management
+        app.kubernetes.io/name: microservicesruntime
     spec:
       imagePullSecrets:
         - name: regcred
