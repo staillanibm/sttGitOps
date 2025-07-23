@@ -1,0 +1,7 @@
+namespace: vault
+
+resources:
+  - vault-configmap.yaml
+  - vault-statefulset.yaml
+  - vault-service.yaml
+  - vault-ingress.yaml
