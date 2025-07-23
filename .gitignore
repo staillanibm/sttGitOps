@@ -1,3 +1,5 @@
 .env
 *secret*.yaml
 *secret*.yml
+!externalSecret.yaml
+.DS_Store
