@@ -1,6 +1,5 @@
 resources:
   - deploy.yaml
-  - externalSecret.yaml
   - workflow.yaml
 images:
   - name: ghcr.io/staillanibm/msr-contact-management
