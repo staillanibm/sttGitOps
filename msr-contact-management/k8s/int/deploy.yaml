@@ -51,7 +51,7 @@ metadata:
     app.kubernetes.io/name: microservicesruntime
   name: stt-contact-management
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: stt-contact-management
